@@ -6,6 +6,142 @@ import java.util.Scanner;
 
 public class Pattern {
 
+    void pattern15(int num1){
+        int n= num1;
+// *        *
+// **      **
+// ***    ***
+// ****  ****
+// **********
+// **********
+// ****  ****
+// ***    ***
+// **      **
+// *        *
+
+
+//     *
+//    ***
+//   *****
+//  *******
+// *********
+// *********
+//  *******
+//   *****
+//    ***
+//     *
+
+//     1
+//    1 1
+//   1 2 1
+//  1 3 3 1
+// 1 4 6 4 1
+
+
+        //upper part
+        for(int i=1; i<=n; i++){
+            for(int j=1; j<=i; j++){
+                System.out.print("*");
+            }
+
+            int spaces = 2*(n-i);
+            for(int j=1; j<=spaces; j++){
+                System.out.print(" ");
+            }
+
+            for(int j=1; j<=i; j++){
+                System.out.print("*");
+            }
+
+            System.out.println();
+        }
+
+        // lower part
+        for(int i=n; i>=1; i--){
+            for(int j=1; j<=i; j++){
+                System.out.print("*");
+            }
+
+            int spaces = 2*(n-i);
+            for(int j=1; j<=spaces; j++){
+                System.out.print(" ");
+            }
+
+            for(int j=1; j<=i; j++){
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+
+    void pattern14(int num1){
+        int len = num1;
+        
+//      1
+//     212
+//    32123
+//   4321234
+//  543212345
+
+        for(int i=1; i<=len; i++){
+            //spaces
+            for(int j=1; j<=len-i; j++){
+                System.out.print(" ");
+            } 
+            // first part
+            for(int j=i; j>=1; j--){
+                System.out.print(" "+j);
+            }
+
+            // second part
+            for(int j=2; j<=i; j++){
+                System.out.print(" "+j);
+            }
+            System.out.println();
+        }
+    }
+
+    void pattern13(int n2){
+        int index = n2;
+// 1
+// 0 0
+// 1 1 1
+// 0 0 0 0
+// 1 1 1 1 1
+        for(int i=1; i<= index; i++){
+            for(int j=1; j<=i; j++){
+                if((i+1) % 2 ==0)
+                System.out.print(1+" ");
+                else
+                    System.out.print(0+" ");  
+            }
+            System.out.println(); 
+        }
+    }
+
+    void pattern12(int n1,int n2){
+        int index = n1, index2 = n2;
+// *****
+// *   *
+// *   *
+// *   *
+// *****
+
+        for(int i=0; i<index; i++){
+            for(int j=0; j<index2; j++){
+                if(i==0 || i==index-1 || j==0 || j==index2-1){
+                 
+                    System.out.print("*");
+                }
+                else {
+                    System.out.print(" ");
+                }
+               
+            }
+            System.out.println();
+        }
+    }
+
     void pattern11(int n){
         for(int i=1; i<=n; i++){
             for(int j=i; j<=n; j++){
@@ -128,6 +264,10 @@ public class Pattern {
         // pattern.pattern8(num1);
         // pattern.pattern9(num1); 
         // pattern.pattern10(num1);
-        pattern.pattern11(num1);
+        // pattern.pattern11(num1);
+        // pattern.pattern12(num1,num2);
+        // pattern.pattern13(num1);
+        // pattern.pattern14(num1);
+        pattern.pattern15(num1);
     }
 }
