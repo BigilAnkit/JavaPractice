@@ -41,18 +41,47 @@ class Recursion{
         System.out.println(fact);
         factorial(n-1,fact);
     }
+
+    void fibonaccisquence(int a,int b,int n){
+        if(n==0){
+            return;
+        }
+        int c = a+b;
+        System.out.println(a);
+//        System.out.println(n);
+//        System.out.println(b);
+        fibonaccisquence(b,c,n-1);
+    }
+
+    void towerOfHanoi(int n,String src,String helper,String dest){
+        if(n==1){
+            System.out.println("Transfer disk "+n+" From "+src+" to "+dest);
+            return;
+        }
+        //transfer top n-1 from src to helper using dest as 'helper'
+        towerOfHanoi(n-1,src,dest,helper);
+
+        //transfer nth from src to dest
+        System.out.println("Transfer disk "+n+" From "+ src +"to"+helper);
+
+        //transfer n-1 from helper to dest using src as 'helper'
+        towerOfHanoi(n-1,helper,src,dest);
+    }
 }
 public class PrintNumbers {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
-        int M = sc.nextInt();
-        int sum =0;
+//        int M = sc.nextInt();
+//        int sum =0;
         Recursion recursion = new Recursion();
 //        recursion.reverseNum(N);
 
 //        recursion.startNum(N,M);
 //        recursion.naturalSum(N,M,sum);
-        recursion.factorial(N,1);
+//        recursion.factorial(N,1);
+
+//        recursion.fibonaccisquence(0,1,15);
+        recursion.towerOfHanoi(N,"A","B","c");
     }
 }
