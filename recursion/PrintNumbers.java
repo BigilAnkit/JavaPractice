@@ -2,6 +2,7 @@ package recursion;
 
 import java.util.Scanner;
 
+
 class Recursion{
     void reverseNum(int n){
         if(n==0){
@@ -67,11 +68,21 @@ class Recursion{
         //transfer n-1 from helper to dest using src as 'helper'
         towerOfHanoi(n-1,helper,src,dest);
     }
+
+    String reverString(String str){
+        if(str.length()==1){
+            return str;
+        }
+
+        char  currChar = str.charAt(0);
+        String nextString = reverString(str.substring(1));
+        return nextString + currChar;
+    }
 }
 public class PrintNumbers {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt();
+//        int N = sc.nextInt();
 //        int M = sc.nextInt();
 //        int sum =0;
         Recursion recursion = new Recursion();
@@ -82,6 +93,9 @@ public class PrintNumbers {
 //        recursion.factorial(N,1);
 
 //        recursion.fibonaccisquence(0,1,15);
-        recursion.towerOfHanoi(N,"A","B","c");
+//        recursion.towerOfHanoi(N,"A","B","c");
+        String str = "abcd";
+     String reverse =     recursion.reverString(str);
+        System.out.println(reverse);
     }
 }
